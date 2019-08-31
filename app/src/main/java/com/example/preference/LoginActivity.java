@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn_logOut=findViewById(R.id.log_out);
+        btn_logOut = findViewById(R.id.log_out);
 
         btn_logOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,9 +28,10 @@ public class LoginActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                 editor.putBoolean("login", false);
                 editor.commit();
-                Log.d("AAA","Login 0");
-                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+                Log.d("Preference", "Login false");
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

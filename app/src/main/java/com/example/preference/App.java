@@ -16,16 +16,18 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME,MODE_PRIVATE);
-        boolean isLoged=prefs.getBoolean("login",false);
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        boolean isLoged = prefs.getBoolean("login", false);
         Intent intent;
-        Log.e("AAA", String.valueOf(isLoged));
-        if (isLoged){
-             intent = new Intent(this,LoginActivity.class);
+
+        Log.e("Preference", String.valueOf(isLoged));
+
+        if (isLoged) {
+            intent = new Intent(this, LoginActivity.class);
+        } else {
+            intent = new Intent(this, MainActivity.class);
         }
-        else {
-            intent =new Intent(this,MainActivity.class);
-        }
+
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
